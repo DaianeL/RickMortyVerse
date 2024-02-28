@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rick and Morty</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body class="cursor-auto bg-white">
+    <header class="relative grid grid-cols-1">
+      <figure class="col-span-1">
+        <img
+          src="assets/logoHeader.webp"
+          alt="Logo"
+          class="absolute top-8 left-1/2 transform -translate-x-1/2 w-32 sm:w-40 md:w-48 lg:w-56 z-50 object-cover object-center"
+        />
+      </figure>
+
+      <video autoplay loop muted>
+        <source src="assets/videoHeader.mp4" />
+      </video>
+
+      <h1
+        class="text-white text-4xl sm:text-5xl md:text-6xl lg:text-8xl xl:text-8xl absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-3/4 z-20 col-span-1 sm:col-span-1 md:col-span-1 lg:col-span-1 xl:col-span-1"
+      >
+        RickMortyVerse
+      </h1>
+      <h2
+        class="text-white w-max font-sans font-extralight text-sm sm:text-md md:text-lg lg:text-xl absolute top-1/2 left-1/2 transform -translate-x-1/2 translate-y-1/2 z-20 mt-7 col-span-1 md:col-span-1 lg:col-span-1 xl:col-span-1"
+      >
+        Explore o universo da série Rick And Morty
+      </h2>
+      <img
+        src="assets/logoHeader.webp"
+        alt="Logo"
+        class="block sm:hidden absolute top-8 left-1/2 transform -translate-x-1/2 w-32 z-50 col-span-1 md:col-span-1 lg:col-span-1 xl:col-span-1"
+      />
+    </header>
+    <main
+      class="bg-white flex items-center justify-items-center grid grid-cols-1 sm:justify-items-center sm:grid-cols-1 lg:grid-cols-2 md:grid-cols-2 xl:grid-cols-2 p-4 sm:p-4 md:p-4"
+    >
+      <h2
+        class="sm:col-span-1 lg:cols-2 md:col-span-2 xl:col-span-2 sm:text-2xl md:text-3xl sm:text-center font-bold sm:font-bold font-base mt-5 text-center col-span-1 text-xl md:text-center lg:text-4xl"
+      >
+        Pesquise personagens, locais e episódios.
+      </h2>
+
+      <!-- Card Personagens -->
+      <div
+        id="characterCard"
+        class="w-96 mt-10 col-span-1 sm:col-span-1 md:col-span-1 lg:col-span-1 xl:col-span-1 md:ms-40"
+      >
+        <h3
+          class="col-span-1 sm:ms-1 font-semibold text-md col-span-1 sm:col-span-1 md:col-span-1 lg:col-span-1 xl:col-span-1"
+        >
+          Personagens
+        </h3>
+        <div
+          class="mt-2 border sm:flex flex border-gray-300 shadow-md rounded-xl w-full sm:w-full col-span-1 col-span-1 sm:col-span-1 md:col-span-1 xl:col-span-1"
+        >
+          <img
+            id="characterImage"
+            class="rounded-l-lg object-cover object-center h-40 w-40"
+            src="assets/imgCard.jpeg"
+            alt="Imagem do ator Rick com a expressão pensativo e questionador."
+          />
+
+          <div
+            class="col-span-1 sm:col-span-1 md:col-span-1 lg:col-span-1 xl:col-span-1 ms-2 mt-14"
+          >
+            <p class="text-sm" id="characterId"></p>
+            <p class="text-sm" id="characterName"></p>
+          </div>
+        </div>
+
+        <div class="col-span-1 sm:col-span-1 md:col-span-1">
+          <h3
+            class="mt-2 sm:ms-1 font-semibold text-sm col-span-1 sm:col-span-1 md:col-span-1 lg:col-span-1 xl:col-span-1"
+          >
+            Pesquise por personagem
+          </h3>
+
+          <select
+            class="border border-gray-300 shadow-md rounded-xl sm:w-full sm:h-10 rounded-md px-4 py-2 w-full mt-1"
+            id="characterSelect"
+          ></select>
+        </div>
+      </div>
+      <div
+        class="hidden flex md:block lg:block xl:block col-span-1 sm:col-span-1 md:col-span-1 lg:col-span-1 xl:col-span-1 w-full h-full"
+      >
+        <figure class="col-span-1">
+          <img
+            src="assets/imgMain.png"
+            alt="A imagem ilustra Rick e Morty mostrando os dedos do meio."
+            class="h-full w-full"
+          />
+        </figure>
+      </div>
+
+      <!-- Sessão Localizações -->
+      <div
+        class="hidden sm:ms-10 md:block lg:block xl:block col-span-1 sm:col-span-1 md:col-span-1 lg:col-span-1 xl:col-span-1"
+      >
+        <figure class="col-span-1 sm:col-span-1">
+          <img
+            src="assets/imgLocal.png"
+            alt="A imagem ilustra Rick e Morty caindo de dentro de uma bolha que está no ar, uma bolha na cor rosa cheia de gosma verde dentro."
+            class="w-full h-auto"
+          />
+        </figure>
+      </div>
+
+      <div
+        class="w-96 mt-10 col-span-1 sm:col-span-1 md:col-span-1 lg:col-span-1 xl:col-span-1 md:ms-30"
+      >
+        <h3
+          class="col-span-1 sm:ms-1 font-semibold text-md col-span-1 sm:col-span-1 md:col-span-1 lg:col-span-1 xl:col-span-1"
+        >
+          Localizações
+        </h3>
+
+        <div
+          class="mt-2 border sm:flex flex border-gray-300 shadow-md rounded-xl w-full sm:w-full col-span-1 col-span-1 sm:col-span-1 md:col-span-1 xl:col-span-1"
+        >
+          <img
+            class="rounded-lg object-cover object-center h-40 w-40"
+            src="assets/imgVerse.jpg"
+            alt="A imagem ilustra o universo, com vários planetas coloridos."
+          />
+          <div
+            class="col-span-1 sm:col-span-1 md:col-span-1 lg:col-span-1 xl:col-span-1 ms-2 mt-10"
+          >
+            <p class="text-sm">
+              <strong>Localização:</strong> <span id="location-title"></span>
+            </p>
+            <p class="text-sm">
+              <strong>Tipo:</strong> <span id="location-type"></span>
+            </p>
+            <p class="text-sm">
+              <strong>Dimensão:</strong> <span id="location-dimension"></span>
+            </p>
+          </div>
+        </div>
+
+        <div class="col-span-1 sm:col-span-1 md:col-span-1">
+          <label
+            for="location"
+            class="block text-sm font-medium text-gray-700 mt-1"
+            >Localizações:
+          </label>
+          <select
+            id="locationSelect"
+            class="border border-gray-300 shadow-md rounded-xl sm:w-full sm:h-10 rounded-md px-4 py-2 w-full mt-1"
+          >
+            <option value="">Selecione uma localização</option>
+          </select>
+        </div>
+
+        <div class="col-span-1 sm:col-span-1 md:col-span-1">
+          <label
+            for="characters"
+            class="block text-sm font-medium text-gray-700 mt-1"
+            >Personagens da localização:</label
+          >
+          <select
+            id="charactersLocationSelect"
+            class="border border-gray-300 shadow-md rounded-xl sm:w-full sm:h-10 rounded-md px-4 py-2 w-full mt-1"
+          >
+            <option value="">Selecione um personagem</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Sessão Episódios -->
+      <div
+        class="w-96 mt-10 col-span-1 sm:col-span-1 md:col-span-1 lg:col-span-1 xl:col-span-1 md:ms-20"
+      >
+        <h3
+          class="col-span-1 sm:ms-1 font-semibold text-md col-span-1 sm:col-span-1 md:col-span-1 lg:col-span-1 xl:col-span-1"
+        >
+          Episódios
+        </h3>
+
+        <div
+          class="mt-2 border sm:flex flex border-gray-300 shadow-md rounded-xl w-full sm:w-full col-span-1 col-span-1 sm:col-span-1 md:col-span-1 xl:col-span-1"
+        >
+          <img
+            id="episodeImage"
+            class="rounded-lg object-cover object-center h-40 w-40"
+            src="assets/cardEpisodios.jpg"
+            alt="A imagem ilustra Morty, com as mãos no ombro da personagem, com olhares apaixonados."
+          />
+          <div
+            class="col-span-1 sm:col-span-1 md:col-span-1 lg:col-span-1 xl:col-span-1 ms-2 mt-10"
+          >
+            <p class="text-sm">
+              <strong>Nome:</strong> <span id="episodeName"></span>
+            </p>
+            <p class="text-sm">
+              <strong>Tag:</strong> <span id="episodeTag"></span>
+            </p>
+            <p class="text-sm">
+              <strong>Data de envio:</strong> <span id="episodeDate"></span>
+            </p>
+          </div>
+        </div>
+
+        <div class="col-span-1 sm:col-span-1 md:col-span-1">
+          <label
+            for="episodesSelect"
+            class="block text-sm font-medium text-gray-700 mt-1"
+            >Episódios:</label
+          >
+          <select
+            id="episodesSelect"
+            class="border border-gray-300 shadow-md rounded-xl sm:w-full sm:h-10 rounded-md px-4 py-2 w-full mt-1"
+          >
+            <option value="">Selecione um episódio</option>
+          </select>
+        </div>
+
+        <div>
+          <label
+            for="characterEpisodesSelect"
+            class="block text-sm font-medium text-gray-700 mt-1"
+            >Personagens do episódio:</label
+          >
+          <select
+            id="characterEpisodesSelect"
+            class="border border-gray-300 shadow-md rounded-xl sm:w-full sm:h-10 rounded-md px-4 py-2 w-full mt-1"
+          >
+            <option value="">Selecione um personagem</option>
+          </select>
+        </div>
+      </div>
+
+      <div
+        class="hidden md:block lg:block xl:block col-span-1 sm:col-span-1 md:col-span-1 xl:col-span-1 w-full h-full"
+      >
+        <figure>
+          <img
+            src="assets/imgEpisodios.png"
+            alt="A imagem ilustra Rick e Morty pendurados em uma carro que está flutuando no ar de ponta cabeça."
+            class="object-cover object-center w-full h-full"
+          />
+        </figure>
+      </div>
+    </main>
+    <footer
+      class="relative grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1 bg-[#97CE4C] mt-20"
+    >
+      <figure
+        class="col-span-1 sm:col-span-1 md:col-span-1 lg:col-span-1 xl:col-span-1 flex justify-center sm:justify-center md:justify-end 2xl:mr-10 2xl:font-bold 2xl:text-lg"
+      >
+        <img class="opacity-10 mt-10" src="assets/logoFooter.png" alt="" />
+      </figure>
+      <div
+        class="col-span-1 sm:col-span-1 md:col-span-1 md:flex md:justify-end md:mr-40"
+      >
+        <h1
+          class="hidden sm:block text-white font-sans text-sm w-max absolute bottom-2/4 font-extralight ml-[25%] sm:ml-[25%] md:bottom-2/4 md:text-lg col-span-1 sm:col-span-1 md:col-span-1 lg:col-span-1"
+        >
+          Site desenvolvido usando: https://rickandmortyapi.com
+        </h1>
+      </div>
+
+      <div class="col-span-1 bg-[#698F35] relative">
+        <div
+          class="col-span-1 flex justify-center sm:flex sm:col-span-1 sm:justify-center md:flex md:justify-end mt-2 sm:mt-2 sm:mr-40"
+        >
+          <h3
+            class="col-span-1 sm:col-span-1 md:col-span-1 text-white text-sm mr-1 mt-2 mb-2 w-max font-sans font-extralight sm:ml-[20%]"
+          >
+            Feito por: Daiane Lima
+          </h3>
+          <a href="https://github.com/DaianeL" target="_blank ">
+            <img
+              class="object-cover object-center mr-1"
+              src="assets/iconGitHub.png"
+              alt="A imagem ilustra a logo do GitHub"
+            />
+          </a>
+          <a
+            href="https://www.instagram.com/futura_engenheiradesoftware?igsh=MWlxdzcyc2JzbXVlaA%3D%3D&utm_source=qr"
+            target="_blank"
+          >
+            <img
+              class="object-cover object-center mr-1"
+              src="assets/iconInstagram.png"
+              alt="A imagem ilustra a logo do Instagram"
+            />
+          </a>
+        </div>
+        <div
+          class="absolute inset-x-0 bottom-0 flex justify-start items-center"
+        >
+          <img
+            class="hidden md:block md:ms-10 w-72 md:w-96 md:h-96 object-cover object-center"
+            src="assets/imgFooter.png"
+            alt="Logo footer"
+          />
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
